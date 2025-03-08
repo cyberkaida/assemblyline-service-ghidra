@@ -1,8 +1,6 @@
-FROM blacktop/ghidra AS ghidra
-
 ARG branch=latest
+FROM blacktop/ghidra AS ghidra
 FROM cccs/assemblyline-v4-service-base:$branch
-
 # We want Ghidra from the base image
 COPY --from=ghidra /ghidra /ghidra
 ENV GHIDRA_INSTALL_DIR /ghidra
